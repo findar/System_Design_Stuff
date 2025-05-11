@@ -21,6 +21,8 @@ Design a front end to display flight operations of a hypothetical drone logistic
     * list of drones + health
 		* click drone to see more details (maint/flight records)
 * when fetching data, have an indicator (spinner, beachball, etc)
+* Lazy-load when we can - if we're clicking a nest we'll likely drill into drone data so pre-fetch
+    * Calculate an estimate of amount of activity to figure out how feasable it is to render on a map
 		
 
 ## Core entities(data)
@@ -65,30 +67,29 @@ Design a front end to display flight operations of a hypothetical drone logistic
 
 ## High Level Design
 
-load a google map with auth overlay
-    Map should start either with a global view or regional view, depending on feedback
-Once Auth'd => `GET /nests/`
+* load a google map with auth overlay
+    * Map should start either with a global view or regional view, depending on feedback
+* Once Auth'd => `GET /nests/`
 
-create elements on map at lat/lon 
-    style based on STATE 
-    if multiple in same area, use clustering to join
-    always use the worst STATE to style - allows user to drill in to see why 
+* create elements on map at lat/lon 
+    * style based on STATE 
+    * if multiple in same area, use clustering to join
+    * always use the worst STATE to style - allows user to drill in to see why 
 
-if click on element -> 
-    zoom in on area 
-    if we're using clustering, generate a zoom to show all grouped nodes 
-    if not clustering, zoom in on the nest + radius of X where X is calculated from the flight distance 
+* if click on element -> 
+    * zoom in on area 
+    * if we're using clustering, generate a zoom to show all grouped nodes 
+    * if not clustering, zoom in on the nest + radius of X where X is calculated from the flight distance 
 
-with zoomed-to-nest-view 
-    show active flights (dotted line between departure and destination, could indicate direction by animation)
-        GET /nests/{nestId}/flights 
-    
-    show health of node 
-    clicking on the nest can open a side bar 
-        GET /nests/{nestId}/drones 
-    side bar is a data table of drones 
-    clicking an item in the data table can jump to a new view with drone details 
-        GET /drones/{droneId}
+* with zoomed-to-nest-view 
+    * show active flights (dotted line between departure and destination, could indicate direction by animation)
+        `GET /nests/{nestId}/flights `
+    * show health of node 
+    * clicking on the nest can open a side bar 
+        `GET /nests/{nestId}/drones`
+    * side bar is a data table of drones 
+    * clicking an item in the data table can jump to a new view with drone details 
+        `GET /drones/{droneId}`
         
 ## Deep Dive
 * for keeping things up to date:
