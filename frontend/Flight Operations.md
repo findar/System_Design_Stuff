@@ -92,7 +92,7 @@ with zoomed-to-nest-view
         
 ## Deep Dive
 * for keeping things up to date:
-    Server side events the best approach - we don't change data just view it 
-    would want to be getting any updates for 
-    change in STATE would trigger a SSE for nests/drone 
-    change in FLIGHTS would trigger a SSE if in zoomed in view 
+    * Server side events the best approach - we don't change data just view it 
+    * would want to be getting any updates for 
+    * change in STATE would trigger a SSE for nests/drone 
+    * change in FLIGHTS would trigger a SSE if in zoomed in view 
