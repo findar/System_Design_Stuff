@@ -16,20 +16,33 @@ Design a digital logbook for a logistics company.  This logbook would record whe
 * Able to 
 
 ### Entities:
-Notification 
-  { vehicleId, type, title, description, severity }
-Vehicle
-  { vehicleId, description, ownerId, make, model, year, serialNumber, otherId }
-Maintenance Record
-  { vehicleId, timeStamp, description, mechanicId[], type(100hr, annual, etc), imageMetadata[] }
-Mechanic
-  { mechanicId, name, license#, desc, ScannedDocumentId[], ProfilePicture }
-ScannedDocument 
-  { ScannedDocumentId, type, ImageMetadata }
-ProfilePicture 
-  { mechanicId, ImageMetadata }
-ImageMetadata
-  { metadataId, description, s3Link }
+**Notification**
+
+  `{ vehicleId, type, title, description, severity }`
+
+**Vehicle**
+
+  `{ vehicleId, description, ownerId, make, model, year, serialNumber, otherId }`
+
+**Maintenance Record**
+
+  `{ vehicleId, timeStamp, description, mechanicId[], type(100hr, annual, etc), imageMetadata[] }`
+
+**Mechanic**
+
+  `{ mechanicId, name, license#, desc, ScannedDocumentId[], ProfilePicture }`
+
+**ScannedDocument**
+
+  `{ ScannedDocumentId, type, ImageMetadata }`
+
+**ProfilePicture**
+
+  `{ mechanicId, ImageMetadata }`
+
+**ImageMetadata**
+
+  `{ metadataId, description, s3Link }`
 
 ### API 
 
