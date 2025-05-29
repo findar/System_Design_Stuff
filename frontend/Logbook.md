@@ -22,7 +22,10 @@ Design a digital logbook for a logistics company.  This logbook would record whe
 
 **Vehicle**
 
-  `{ vehicleId, description, ownerId, make, model, year, serialNumber, otherId }`
+  `{ vehicleId, vehicleMetaDataId, ownerId }`
+
+**VehicleMetaData**
+    `{vehicleId, description, ownerId, make, model, year, serialNumber, ...etc}`
 
 **Maintenance Record**
 
@@ -67,10 +70,10 @@ Example landing page for maintenance details on a vehicle as well as what adding
 ![image](https://github.com/user-attachments/assets/50d9b125-d1f2-4596-af87-811ca6e39a26)
 
 LogLandingPage State:
-{ MaintenanceRecord[], Notification[], VehicleID }
+`{ MaintenanceRecord[], Notification[], VehicleID }`
 
 RecordViewState:
-{ VehicleId, MaintenanceRecord?, Mechanic? }
+`{ VehicleId, MaintenanceRecord?, Mechanic? }`
 
 Example alerts page - reached by clicking alert notification
 
@@ -78,7 +81,7 @@ Example alerts page - reached by clicking alert notification
 
 NotificationsLandingPage State:
 
-{ Notification[], VehicleId }
+` Notification[], VehicleId }`
 
 ## Digging Deep
 
@@ -98,3 +101,8 @@ A: Multiple scenarios to deal with.  Loss before/after vehicles stored?
 
 A: Each notification type can assign conditions for severity.  Ex: a PropellerSwap type might be 50 hours of flight, an AnnualInspection might be 1 year from previous inspection.  Our notification service then runs through each notification, checks conditions against the vehicle, and generates a list of notifications.  This is stored in cache on the service side and sent to the user.  This would allow easy unit testing of each.
 
+## Notes ##
+
+For notifications, we would implement the rules with the [Specification Pattern](https://en.wikipedia.org/wiki/Specification_pattern).  This would allow clear descriptions and testability.  
+
+We could then run the notification service on a cron job daily for computation and store results in either a cache or 
