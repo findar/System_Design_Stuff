@@ -1,7 +1,7 @@
-### Problem
+## Problem
 Design a digital logbook for a logistics company.  This logbook would record when maintenance has occurred.  It would also provide insight into upcoming work to be done as well. 
 
-### Requirements:
+## Requirements:
 
 * CRU(D?) of maintenance records for a specific on a vehicle
 * Tracking of mechanic who performed work/signed off
@@ -15,7 +15,7 @@ Design a digital logbook for a logistics company.  This logbook would record whe
 * Fast - sub 1s delay to fetching data
 * Notifications are timely - Should not be surprised by regular maintenance 
 
-### Entities:
+## Entities:
 **Notification**
 
   `{ vehicleId, type, title, description, severity }`
@@ -44,7 +44,7 @@ Design a digital logbook for a logistics company.  This logbook would record whe
 
   `{ metadataId, description, s3Link }`
 
-### API 
+## API 
 
 `GET notifications/{vehicleId}` -> returns notification[]
 
@@ -59,7 +59,7 @@ Design a digital logbook for a logistics company.  This logbook would record whe
 
 `PATCH logs/maint/{vehicleId}` -> update existing Maintenance Record   // we should keep diffs on backend
 
-### High Level Design
+## High Level Design
 
 
 Example landing page for maintenance details on a vehicle as well as what adding/reading a maintence log might look like
@@ -80,7 +80,7 @@ NotificationsLandingPage State:
 
 { Notification[], VehicleId }
 
-### Digging Deep
+## Digging Deep
 
 **Q: Should logging into the app associate mechanic and pre-populate field any time the order is updated?**
 
