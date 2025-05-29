@@ -12,8 +12,8 @@ Design a digital logbook for a logistics company.  This logbook would record whe
 
 * High availability - should be able to always see some data
 * Eventual Consistency is ok - Devices may not have connectivity but should eventually sync
-* Fast - sub 1s delay to 
-* Able to 
+* Fast - sub 1s delay to fetching data
+* Notifications are timely - Should not be surprised by regular maintenance 
 
 ### Entities:
 **Notification**
