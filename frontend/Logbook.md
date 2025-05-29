@@ -105,4 +105,4 @@ A: Each notification type can assign conditions for severity.  Ex: a PropellerSw
 
 For notifications, we would implement the rules with the [Specification Pattern](https://en.wikipedia.org/wiki/Specification_pattern).  This would allow clear descriptions and testability.  
 
-We could then run the notification service on a cron job daily for computation and store results in either a cache or 
+We could then run the notification service on a cron job daily for computation and update the `Notifications` datastore as well as push a notification to client.
