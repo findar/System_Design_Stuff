@@ -25,6 +25,7 @@ Design a digital logbook for a logistics company.  This logbook would record whe
   `{ vehicleId, vehicleMetaDataId, ownerId }`
 
 **VehicleMetaData**
+
     `{vehicleId, description, ownerId, make, model, year, serialNumber, ...etc}`
 
 **Maintenance Record**
